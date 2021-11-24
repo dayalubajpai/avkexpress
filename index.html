@@ -11,6 +11,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap Cdn End -->
+    <!-- JS -->
+    <script>
+
+        $(document).ready(function(){
+            $("#myBtn").click(function(){
+              $("#myModal").modal();
+            });
+          });
+    </script>
     <!-- Css include -->
     <style>
         .navico{
@@ -21,17 +30,38 @@
     color: black;
 }
 .navbar-light .navbar-nav .nav-link:hover {
-    color: red;
+    color: rgb(245, 50, 50);
 }
 .nidt{
-    text-align: center;
+    text-align: center;     
+    padding-left: 30px;
+    padding-right: 30px;
+    font-weight: 600;
+    font-size: 15px !important; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .nidtx{
     text-align: center;
     background-color: red;
-    color: white;
+    color: rgb(255, 255, 255);
 }
-        
+.modal-header,  .close {
+    background-color: #5cb85c;
+    color:white !important;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 30px;
+  }
+  .model-content{
+    box-shadow: 0px 10px 3px 9px red ;
+  }
+  .model-body{
+    font-family: sans-serif;
+  }
+  .modal-footer {
+    background-color: #f9f9f9;
+  }    
+
 @media only screen and (max-width: 460px) {
             .nav-link {
                 border-bottom: 1px solid;
@@ -48,7 +78,7 @@
 <body>
     <!-- header start -->
     <header>
-        <div class="container">
+        <div class="container-fluid">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a href="file:///C:/xampp/htdocs/socialcrawler/include/header.html" class="navbar-brand"><img
                         src="img/AVK.png" alt="" width="140"></a>
@@ -57,7 +87,7 @@
                         <i class="fa fa-sliders" aria-hidden="true"></i>
                     </span>
                 </button>
-                <div class="collapse navbar-collapse" id="mynavbar">
+                <div class="collapse navbar-collapse m-auto" id="mynavbar">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item nidt"><a href="#" class="nav-link">
                                 <div class="navico"><i class="fa fa-home" aria-hidden="true"></i></div>
@@ -79,14 +109,55 @@
                                 <div class="navico"><i class="fa fa-address-card-o" aria-hidden="true"></i></div>
                                 Contact Us
                             </a></li>
-                            <button class="btn bg-danger text-white btls">Login/Signup</button>
+                            <button class="btn bg-danger text-white btls"  id="myBtn" onclick="login()" >Login/Signup</button>
                     </ul>
                 </div>
             </nav>
         </div>
+        
     </header>
     <!-- header start end -->
+    <div class="container">
 
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+      
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                  <h4 style="color:rgb(238, 238, 238);"><span class="glyphicon glyphicon-lock"></span> Login</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <form role="form">
+                  <div class="form-group">
+                    <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+                    <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+                  </div>
+                  <div class="form-group">
+                    <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                    <input type="text" class="form-control" id="psw" placeholder="Enter password">
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" value="" checked>Remember me</label>
+                  </div>
+                  <button type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                <p>Not a member? <a href="#">Sign Up</a></p>
+                <p>Forgot <a href="#">Password?</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>hii
+
+
+      </p>
 </body>
 
 </html>
